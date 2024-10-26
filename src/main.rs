@@ -23,28 +23,6 @@ fn color(word: &String, color: usize) -> ColoredString {
     }
 }
 
-// fn print_line_backup(line: &str, words: &Vec<String>) {
-//     let mut idx = 0;
-//     'outer: loop {
-//         if idx >= line.len() {
-//             break
-//         }
-//         let sub = &line[idx..];
-//         let mut coloridx = 0;
-//         for word in words.clone()  {
-//             if sub.starts_with(word.as_str()) {
-//                 print!("{}", color(&word, coloridx));
-//                 idx += word.len();
-//                 continue 'outer;
-//             }
-//             coloridx += 1;
-//         }
-//         print!("{}", line.chars().nth(idx).unwrap());
-//         idx += 1;
-//     }
-//     println!("");
-// }
-
 fn print_line(line: String, words: &Vec<String>){
     let char_idxs = line.char_indices();
     let mut skip_count = 0;

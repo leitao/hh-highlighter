@@ -2,15 +2,19 @@ use std::{io::{self, BufRead}, thread, time::Duration};
 use colored::{Colorize, ColoredString};
 use clap::Parser;
 
-// static CONTEXT: u8 = 0;
-
+/// Read from stdin, and highlight selected words printed to stdout
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Args {
+    /// Add more context to the words being highlighted
     #[arg(short, long, action = clap::ArgAction::Count)]
     context: u8,
+    
+    /// Wait a second after the line with the highlighted word is printed
     #[arg(short, long, action = clap::ArgAction::Count)]
     wait: u8,
+
+    /// The words you want to highlight
     words: Vec<String>
 }
 
